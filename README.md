@@ -8,8 +8,8 @@ This repository contains numerical experiments for the paper
 ## Folders
 - `MSOM_Data`: The Instacart Online Grocery Shopping Dataset 2017
 - `Fitness_Codes/`: Python files for fitness tests
-- `FPTAS_Uncapacitated/`: Matlab codes for uncapacitated cases
-- `FPTAS_Capacitated/`: Matlab codes for capacitated cases
+- `FPTAS_SGS_Uncapacitated/`: Matlab codes for uncapacitated cases
+- `FPTAS_SGS_Capacitated/`: Matlab codes for capacitated cases
 - `Additional_Numerical/`: Matlab codes for additional numerical tests
 
 
@@ -23,7 +23,7 @@ Each python file in `Fitness_Codes/` conducts cross validation with 'orders_uniq
 - `MVMNL_CrossValidation.py`: conduct cross validation under MVMNL model
 
 
-## FPTAS_Capacitated
+## FPTAS_SGS_Capacitated
 - `Main_Capacitated.m` is used for one run of a certain capacitated numerical experiment, while other files define some functions to be imported by `Main_Capacitated.m`.
 - `FPTAS_capacitated`: FPTAS
 - `Heuristic_Golden_Section_capacitated.m`: SGS algorithms
@@ -32,7 +32,7 @@ Each python file in `Fitness_Codes/` conducts cross validation with 'orders_uniq
 - `StaticMNL.m`: an algorithm in Rusmevichientong et al. (2010)
 
 
-## FPTAS_Uncapacitated
+## FPTAS_SGS_Uncapacitated
 - `Main_Uncapacitated.m` is used for one run of a certain uncapacitated numerical experiment, while other files define some functions to be imported 
 by `Main_Uncapacitated.m`. The descriptions of these files are similar to those found in the `FPTAS_Capacitated/`.
 
