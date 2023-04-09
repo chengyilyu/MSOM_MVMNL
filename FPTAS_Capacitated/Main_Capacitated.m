@@ -47,7 +47,7 @@ for sample = 1 : 10
     % [true_max_profit, true_optimal_x] = Optimal_capacitated ()
     %Benchmark
     [best_PR_revenue, best_PR_X] = Pure_RO_capacitated ()
-    [BestSampleRevenue_MVMNL, BestSampleX] = PairwiseMNL_capacitated (DivisionSampleNumber)
+    [BestSampleRevenue_MVMNL, BestSampleX] = GroupwiseMNL_capacitated (DivisionSampleNumber)
 
 %     epsilon = 0.8
     % [FPTAS_best_revenue2, best_K2, FPTAS_best_X2] = FPTAS_capacitated () %maximum_revenue_index is the K which achieves the best revenue

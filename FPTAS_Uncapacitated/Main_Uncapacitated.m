@@ -44,7 +44,7 @@ for sample = 1:10
     % [true_max_profit, true_optimal_x] = Optimal_uncapacitated ()
     % benchmarks
 %     [best_PR_revenue, best_PR_X] = Pure_RO_uncapacitated ()
-    [best_PairwiseMNL_revenue_MVMNL, best_PairwiseMNL_X] = PairwiseMNL_RO_uncapacitated ()
+    [best_PairwiseMNL_revenue_MVMNL, best_PairwiseMNL_X] = GroupwiseMNL_RO_uncapacitated ()
     
 %     epsilon = 0.8
     % FPTAS

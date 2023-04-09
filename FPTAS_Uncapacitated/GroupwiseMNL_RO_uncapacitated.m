@@ -1,38 +1,32 @@
-function [best_PR_revenue_MVMNL, best_PR_X] = Pure_RO_uncapacitated ()
+function [best_PairwiseMNL_revenue_MVMNL, best_PairwiseMNL_X] = GroupwiseMNL_RO_uncapacitated ()
     global I J L num_group_in_one_cluster ;
     global utility_v0 revenue_matrix_r utility_matrix_v;
     
-    PR_t_Start = tic;
-    best_PR_revenue_MVMNL = -inf;
-    best_PR_revenue_MNL = -inf;
-    best_PR_X = zeros(I,J);
-    
-    [glo_sort_r, glo_sort_r_index] = sort(revenue_matrix_r(:)','descend');
-    
-    for i = 0 : size(glo_sort_r,2)
-        temp_x = zeros(I,J);
-        temp_x(glo_sort_r_index(1:i)) = 1;
-        temp_denominator = utility_v0 + sum(sum(utility_matrix_v.*temp_x));
-        temp_numerator = sum(sum(revenue_matrix_r.*utility_matrix_v.*temp_x));
-        temp_revenue = temp_numerator/temp_denominator;
-        if temp_revenue > best_PR_revenue_MNL
-            best_PR_revenue_MNL = temp_revenue;
-            best_PR_X = temp_x;
+    PairwiseMNL_t_Start = tic;
+    best_PairwiseMNL_revenue_MVMNL = -inf;
+    best_PairwiseMNL_X = zeros(I,J);
+
+    for jIndex = 1 : J
+        tempGroupX = zeros(I,1);
+        tempGroupBestRevenue = -inf;
+        tempGroupUtility = utility_matrix_v(:,jIndex);
+        tempGroupRevenue = revenue_matrix_r(:,jIndex);
+        for iIndex = 1 : I
+            tempGroupX(1:iIndex) = 1;
+            tempGroupExpectedRevenue = tempGroupX'*(tempGroupRevenue.*tempGroupUtility)/(utility_v0 + tempGroupX'*tempGroupUtility);
+%             tempGroupExpectedRevenue = tempGroupX'*(tempGroupRevenue.*tempGroupUtility)/(1 + tempGroupX'*tempGroupUtility);
+            if tempGroupExpectedRevenue > tempGroupBestRevenue
+                tempGroupBestRevenue = tempGroupExpectedRevenue;
+                best_PairwiseMNL_X(:,jIndex) = tempGroupX;
+            end
         end
     end
-    best_PR_revenue_MVMNL = calculate_revenue (best_PR_X);
-
-%         temp_denominator = utility_v0 + sum(sum(utility_matrix_v.*temp_x));
-%         temp_numerator = sum(sum(revenue_matrix_r.*utility_matrix_v.*temp_x));
-%         temp_revenue = temp_numerator/temp_denominator;
-%         if temp_revenue > best_PR_revenue_direct
-%             best_PR_revenue_direct = temp_revenue;
-%             best_PR_X = temp_x;
-%         end
-
-    PR_t_End = toc(PR_t_Start);
-    fprintf('Running time of the pure revenue: %d minutes and %f seconds\n', floor(PR_t_End/60), rem(PR_t_End,60));
+    best_PairwiseMNL_revenue_MVMNL = calculate_revenue (best_PairwiseMNL_X);
+    PairwiseMNL_t_End = toc(PairwiseMNL_t_Start);
+    fprintf('Running time of thePairwiseMNL: %d minutes and %f seconds\n', floor(PairwiseMNL_t_End/60), rem(PairwiseMNL_t_End,60));
 end
+
+
 
 function [revenue] = calculate_revenue (current_x)
     global I J L num_group_in_one_cluster utility_v0 revenue_matrix_r utility_matrix_v interation_para_phi;

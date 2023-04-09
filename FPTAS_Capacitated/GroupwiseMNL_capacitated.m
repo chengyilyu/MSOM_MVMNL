@@ -1,4 +1,4 @@
-function [best_PairwiseMNL_revenue_MVMNL, best_PairwiseMNL_X] = PairwiseMNL_capacitated (DivisionSampleNumber)
+function [best_PairwiseMNL_revenue_MVMNL, best_PairwiseMNL_X] = GroupwiseMNL_capacitated (DivisionSampleNumber)
     global I J;
     global utility_v0 revenue_matrix_r utility_matrix_v;
     global upper_case_C order_matrix;
