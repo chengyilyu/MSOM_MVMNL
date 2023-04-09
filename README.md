@@ -37,4 +37,7 @@ Each python file in `Fitness_Codes/` conducts cross validation with 'orders_uniq
 by `Main_Uncapacitated.m`. The descriptions of these files are similar to those found in the `FPTAS_Capacitated/`.
 
 
-
+## Additional_Numerical
+The files are for the additional numerical experiments in Appendix/Online version
+- `Main.m` is used for one run of numerical experiment aimed at gaining insights on the interaction term, 
+while other files define some functions to be imported by `Main.m`.
