@@ -7,9 +7,9 @@ This repository contains numerical experiments for the paper
 
 ## Folders
 - `Additional_Numerical/`: Matlab codes for additional numerical tests
-- `Fitness_Codes/`: Python files for fitness tests
-- `FPTAS_Uncapacitated/`: Matlab codes for uncapacitated cases
 - `FPTAS_Capacitated/`: Matlab codes for capacitated cases
+- `FPTAS_Uncapacitated/`: Matlab codes for uncapacitated cases
+- `Fitness_Codes/`: Python files for fitness tests
 - `MSOM_Data`: The Instacart Online Grocery Shopping Dataset 2017
 
 
